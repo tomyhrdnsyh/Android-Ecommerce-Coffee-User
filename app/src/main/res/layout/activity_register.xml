@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/bg_register"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/bg_register" />
+
+    <EditText
+        android:id="@+id/et_nama"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/bg_register"
+        android:layout_marginTop="20dp"
+        android:hint="@string/nama"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/editrounded"
+        android:drawablePadding="15dp"
+        android:textSize="16sp"
+        android:inputType="text"
+        />
+
+    <EditText
+        android:id="@+id/et_hp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_nama"
+        android:layout_marginTop="10dp"
+        android:hint="@string/no_hp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/editrounded"
+        android:drawablePadding="15dp"
+        android:textSize="16sp"
+        android:inputType="number"
+        />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_hp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/email"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/editrounded"
+        android:drawablePadding="15dp"
+        android:textSize="16sp"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_email"
+        android:layout_marginTop="10dp"
+        android:hint="@string/password"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/editrounded"
+        android:drawablePadding="15dp"
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/et_alamat"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/et_password"
+        android:layout_marginTop="10dp"
+        android:gravity="left|top"
+        android:hint="@string/alamat"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/editrounded"
+        android:drawablePadding="15dp"
+        android:textSize="16sp"
+        android:inputType="textMultiLine"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="256dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/et_alamat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/daftar"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_login"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_newuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="71dp"
+            android:text="Sudah punya akun?"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="71dp"
+            android:layout_toEndOf="@+id/tv_newuser"
+            android:text="@string/masuk"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
