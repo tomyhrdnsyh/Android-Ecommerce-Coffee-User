@@ -1,19 +1,41 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
+
+    lateinit var no_hp: EditText
+    lateinit var password: EditText
+    lateinit var button_login: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        supportActionBar?.hide()
 
+        button_login = findViewById(R.id.btn_login)
+        no_hp = findViewById(R.id.et_username)
+        password = findViewById(R.id.et_password)
+
+        // login checking
+        button_login.setOnClickListener {
+            if (no_hp.text.toString() == "admin-aja" ||password.text.toString()  == "rahasia2022" ) {
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                Toast.makeText(applicationContext, "Login berhasil", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // when user click register
         val register = findViewById<TextView>(R.id.tv_register)
         register.setOnClickListener {
             val intent = Intent(this,RegisterActivity::class.java)
@@ -21,4 +43,5 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
 }

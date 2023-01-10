@@ -11,9 +11,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        supportActionBar?.hide()
-
         val login = findViewById<TextView>(R.id.tv_login)
         login.setOnClickListener {
             val intent = Intent(this,LoginActivity::class.java)

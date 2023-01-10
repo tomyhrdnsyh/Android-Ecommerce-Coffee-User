@@ -8,4 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2B68D8</color>
+    <color name="chocolate">#582610</color>
+    <color name="colorPrimary">#582610</color>
+    <color name="colorPrimaryDark">#582610</color>
+    <color name="colorAccent">#EF5350</color>
+
+    <color name="md_cyan_A700">#00B8D4</color>
+    <color name="colorTextInputBackground">#F7F7F7</color>
 </resources>
