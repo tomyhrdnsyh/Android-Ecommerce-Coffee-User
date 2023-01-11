@@ -12,4 +12,13 @@
     <string name="search">Mehak Gula Aren</string>
     <string name="hint_username">Username</string>
     <string name="add_to_cart">Add item to cart</string>
+    <string name="checkout_details">Checkout Details</string>
+    <string name="deliver_to">Deliver to</string>
+    <string name="edit">Edit</string>
+    <string name="order_details">Order Details</string>
+    <string name="delete_checkout">Delete Checkout</string>
+    <string name="order_subtotal">Order Subtotal</string>
+    <string name="price">Rp69.000</string>
+    <string name="payment_method">COD</string>
+    <string name="checkout">Checkout</string>
 </resources>

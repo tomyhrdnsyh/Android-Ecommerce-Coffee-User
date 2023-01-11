@@ -1,8 +1,11 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -24,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         adapter = RecyclerAdapter()
         recyclerView.adapter = adapter
 
-
+        val cart = findViewById<ImageView>(R.id.cart)
+        cart.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+        }
     }
 }

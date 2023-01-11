@@ -36,7 +36,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-//        var itemImage: ImageView
+        var itemImage: ImageView
         var itemTitle: TextView
         var itemType: TextView
         var itemStock: TextView
@@ -44,14 +44,20 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         var addToCart: ImageView
 
         init {
-//            itemImage = itemView.findViewById(R.id.item_image)
+            itemImage = itemView.findViewById(R.id.item_image)
             itemTitle = itemView.findViewById(R.id.item_title)
             itemType = itemView.findViewById(R.id.item_type)
             itemStock = itemView.findViewById(R.id.item_stock)
             itemPrice = itemView.findViewById(R.id.item_price)
             addToCart = itemView.findViewById(R.id.add_to_cart)
 
-            itemView.setOnClickListener{
+            itemImage.setOnClickListener{
+                val position: Int = adapterPosition
+
+                Toast.makeText(itemView.context, "you clicked on ${title[position]}", Toast.LENGTH_LONG).show()
+            }
+
+            itemTitle.setOnClickListener{
                 val position: Int = adapterPosition
 
                 Toast.makeText(itemView.context, "you clicked on ${title[position]}", Toast.LENGTH_LONG).show()
