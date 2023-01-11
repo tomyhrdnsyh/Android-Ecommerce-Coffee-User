@@ -6,7 +6,7 @@
     app:cardBackgroundColor="@color/white"
     android:id="@+id/checkout_card_view"
     android:layout_margin="5dp"
-    app:cardElevation="3dp"
+    app:cardElevation="0dp"
     app:contentPadding="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,9 +17,9 @@
 
         <ImageView
             android:id="@+id/item_image_co"
-
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:src="@drawable/coffee"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -31,13 +31,12 @@
             app:layout_constraintLeft_toRightOf="@id/item_image_co"
             android:layout_marginStart="16dp"
             android:textColor="@color/black"
-            android:textSize="20sp"/>
+            android:textSize="16sp"/>
 
         <ImageView
             android:id="@+id/delete_co"
-            android:layout_width="20dp"
+            android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginStart="5dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@id/item_title_co"
             android:src="@drawable/ic_trash"
@@ -54,12 +53,22 @@
             android:layout_marginStart="16dp"/>
 
         <TextView
-            android:id="@+id/item_price_co"
+            android:id="@+id/item_qty"
             android:layout_width="236dp"
             android:layout_height="wrap_content"
             app:layout_goneMarginStart="16dp"
             android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@id/item_type_co"
+            app:layout_constraintLeft_toRightOf="@id/item_image_co"
+            android:layout_marginStart="16dp"/>
+
+        <TextView
+            android:id="@+id/item_price_co"
+            android:layout_width="236dp"
+            android:layout_height="wrap_content"
+            app:layout_goneMarginStart="16dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/item_qty"
             app:layout_constraintLeft_toRightOf="@id/item_image_co"
             android:layout_marginStart="16dp"
             android:textColor="@color/chocolate"

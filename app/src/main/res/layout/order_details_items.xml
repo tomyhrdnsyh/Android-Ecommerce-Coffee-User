@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/item_qty"
+            android:text="2x"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="3dip" />
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_column="1"
+            android:text="Mehak Gula Aren"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="3dip" />
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:gravity="right"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="3dip" />
+    </TableRow>
+</TableLayout>

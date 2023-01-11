@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.ViewHolder>() {
 
 
     private var title = arrayOf("Coffe Mmk", "Coffe Merah", "Coffe Hitam")
@@ -19,7 +18,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 //    private var image = intArrayOf(R.drawable.coffee, R.drawable.coffee, R.drawable.coffee)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_home, parent, false)
         return ViewHolder(v)
     }
 

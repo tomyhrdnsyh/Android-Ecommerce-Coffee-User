@@ -18,7 +18,12 @@
     <string name="order_details">Order Details</string>
     <string name="delete_checkout">Delete Checkout</string>
     <string name="order_subtotal">Order Subtotal</string>
-    <string name="price">Rp69.000</string>
+    <string name="price">Rp 69.000</string>
     <string name="payment_method">COD</string>
     <string name="checkout">Checkout</string>
+    <string name="message">Pesananmu akan disiapkan dan segera diantar</string>
+    <string name="detail">Detail</string>
+    <string name="diterima">Diterima</string>
+    <string name="buy_again">Belanja Lagi</string>
+    <string name="string_coffee">Coffee</string>
 </resources>
