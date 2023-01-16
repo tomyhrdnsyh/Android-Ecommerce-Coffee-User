@@ -29,5 +29,10 @@ class MainActivity : AppCompatActivity() {
         cart.setOnClickListener {
             startActivity(Intent(this@MainActivity, CartActivity::class.java))
         }
+
+        val profile = findViewById<ImageView>(R.id.profile)
+        profile.setOnClickListener {
+            startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+        }
     }
 }

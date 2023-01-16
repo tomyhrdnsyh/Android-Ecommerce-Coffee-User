@@ -3,25 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="#fff"
-    app:cardElevation="0dp"
-    app:cardCornerRadius="0dp">
+    app:cardBackgroundColor="@color/colorTextInputBackground"
+    app:cardCornerRadius="24dp"
+    android:layout_margin="5dp"
+    app:cardElevation="0dp">
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:minHeight="50dp"
+        android:gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:stretchColumns="1">
+
         <TableRow>
             <TextView
                 android:id="@+id/item_qty"
-                android:textColor="@color/black"
-                android:textStyle="bold"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/item_title"
                 android:layout_column="1"
-                android:textColor="@color/black"
-                android:textStyle="bold"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/item_price"
@@ -31,5 +33,7 @@
                 android:textStyle="bold"
                 android:padding="3dip" />
         </TableRow>
+
     </TableLayout>
-</androidx.cardview.widget.CardView >
+
+</androidx.cardview.widget.CardView>

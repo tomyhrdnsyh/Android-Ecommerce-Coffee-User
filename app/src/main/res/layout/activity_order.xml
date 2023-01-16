@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderActivity">
+
+    <LinearLayout
+        android:id="@+id/details_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="@android:color/transparent"
+            app:navigationIcon="@drawable/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/chocolate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:textStyle="bold"
+            android:text="@string/my_orders"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/details_header"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:stretchColumns="1">
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/sedang_berjalan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:textSize="16sp"
+                        android:text="@string/sedang_berjalan"/>
+
+                    <TextView
+                        android:id="@+id/riwayat_pesanan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="@string/riwayat_pesanan"/>
+                </TableRow>
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorTextInputBackground"
+                android:layout_marginTop="18dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/prosescoklat"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        />
+</RelativeLayout>

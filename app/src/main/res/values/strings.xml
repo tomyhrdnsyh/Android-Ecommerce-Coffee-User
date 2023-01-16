@@ -26,4 +26,13 @@
     <string name="diterima">Diterima</string>
     <string name="buy_again">Belanja Lagi</string>
     <string name="string_coffee">Coffee</string>
+    <string name="account">Akun</string>
+    <string name="logout">Log Out</string>
+    <string name="save">Simpan</string>
+    <string name="logout_message">Apakah anda yakin ingin keluar?</string>
+    <string name="profile">Profile</string>
+    <string name="pesanan_saya">Pesanan Saya</string>
+    <string name="my_orders">Pesanan Saya</string>
+    <string name="sedang_berjalan">Sedang Berjalan</string>
+    <string name="riwayat_pesanan">Riwayat Pesanan</string>
 </resources>
