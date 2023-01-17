@@ -35,4 +35,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
         }
     }
+
+
 }

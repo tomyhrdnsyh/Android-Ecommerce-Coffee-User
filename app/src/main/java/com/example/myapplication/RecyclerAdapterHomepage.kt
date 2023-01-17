@@ -70,4 +70,26 @@ class RecyclerAdapterHomepage: RecyclerView.Adapter<RecyclerAdapterHomepage.View
         }
 
     }
+
+    private fun getAllProduct(nama_produk: String, jenisProduk: String, no_faktur_pembelian: String,
+                              kuantitas: String, harga_satuan: String, tanggal_kadaluarsa: String) {
+        RetrofitClient.instance.getAllProduct(
+            nama_produk,
+            jenisProduk,
+            no_faktur_pembelian,
+            kuantitas,
+            harga_satuan,
+            tanggal_kadaluarsa
+        ).enqueue(object : Callback<PostAllProduct>{
+            override fun onResponse(call: Call<PostProduk>, response: Response<PostProduk>) {
+                Toast.makeText(applicationContext, "Tambah Data Sukses", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onFailure(call: Call<PostProduk>, t: Throwable) {
+                // t.message menampilkan pesan error dari system
+                Toast.makeText(applicationContext, "Gagal koneksi ke server", Toast.LENGTH_LONG).show()
+            }
+
+        })
+    }
 }
