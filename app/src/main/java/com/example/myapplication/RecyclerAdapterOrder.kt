@@ -1,26 +1,31 @@
 package com.example.myapplication
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapterOrder: RecyclerView.Adapter<RecyclerAdapterOrder.ViewHolder>() {
+class RecyclerAdapterOrder(private val item: ArrayList<GetAllOrders>): RecyclerView.Adapter<RecyclerAdapterOrder.ViewHolder>() {
 
-    private var title = arrayOf("Coffe Mmk", "Coffe Merah")
-    private var qty = arrayOf("2", "1")
-    private var price = arrayOf("21,000,000", "24,000,000")
+    private var qty = item.map { it.qty }
+    private var title = item.map { it.product__name }
+    private var price = item.map { it.order__gross_amount }
+    private var status = item.map { it.order__status }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var itemQty: TextView
         var itemTitle: TextView
         var itemPrice: TextView
+        var itemStatus: ImageView
 
         init {
             itemQty = itemView.findViewById(R.id.item_qty)
             itemTitle = itemView.findViewById(R.id.item_title)
             itemPrice = itemView.findViewById(R.id.item_price)
+            itemStatus = itemView.findViewById(R.id.item_status)
         }
     }
 
@@ -32,14 +37,20 @@ class RecyclerAdapterOrder: RecyclerView.Adapter<RecyclerAdapterOrder.ViewHolder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = title[position]
 
-        holder.itemQty.setText(qty[position])
+        if (status[position] == "Belum diterima") {
+            holder.itemStatus.setImageResource(R.drawable.icc_delivery);
+        }
+        else {
+            holder.itemStatus.setImageResource(R.drawable.icc_check);
+        }
+
+        holder.itemQty.text = qty[position]
         holder.itemQty.append("x")
 
-        holder.itemPrice.setText("Rp. ")
-        holder.itemPrice.append(price[position])
+        holder.itemPrice.text = price[position]
     }
 
     override fun getItemCount(): Int {
-        return title.size
+        return item.size
     }
 }

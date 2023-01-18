@@ -29,9 +29,18 @@
                 android:id="@+id/item_price"
                 android:layout_height="wrap_content"
                 android:gravity="right"
+                android:text="Rp. 23,000"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:padding="3dip" />
+
+            <ImageView
+                android:id="@+id/item_status"
+                android:gravity="center"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                />
         </TableRow>
 
     </TableLayout>

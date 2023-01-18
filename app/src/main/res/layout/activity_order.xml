@@ -55,26 +55,28 @@
                 android:stretchColumns="1">
 
                 <TableRow>
-                    <TextView
-                        android:id="@+id/sedang_berjalan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="1"
-                        android:textSize="16sp"
-                        android:text="@string/sedang_berjalan"/>
+<!--                    <TextView-->
+<!--                        android:id="@+id/sedang_berjalan"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        -->
+<!--                        android:textSize="16sp"-->
+<!--                        android:text="@string/sedang_berjalan"/>-->
 
                     <TextView
+                        android:gravity="center"
                         android:id="@+id/riwayat_pesanan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
+                        android:layout_column="1"
                         android:text="@string/riwayat_pesanan"/>
                 </TableRow>
             </TableLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="3dp"
                 android:background="@color/colorTextInputBackground"
                 android:layout_marginTop="18dp"
                 />
