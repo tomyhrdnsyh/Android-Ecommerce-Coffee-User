@@ -132,6 +132,8 @@ class RecyclerAdapterHomepage(private val item: ArrayList<GetAllProduct>): Recyc
                 myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                 myDialog.show()
 
+                // when user click btn_detail
+
             }
 
             override fun onFailure(call: Call<PostOrders>, t: Throwable) {
