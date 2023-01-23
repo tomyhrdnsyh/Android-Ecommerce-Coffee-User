@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -13,8 +14,12 @@ import retrofit2.Response
 class OrderActivity : AppCompatActivity() {
 
     private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<RecyclerAdapterOrder.ViewHolder>? = null
+    private var adapter: RecyclerView.Adapter<RecyclerAdapterOrderActivity.ViewHolder>? = null
     private val allOrders = ArrayList<GetAllOrders>()
+
+    companion object {
+        const val USERNAME = ""
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,24 +28,25 @@ class OrderActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolbar.setNavigationOnClickListener { super.onBackPressed() }
+
+        val username = intent.getStringExtra(CartActivity.USERNAME)
+
+        toolbar.setNavigationOnClickListener {
+            val moveWithDataIntent = Intent(this, ProfileActivity::class.java)
+            moveWithDataIntent.putExtra(AccountActivity.USERNAME, username)
+            startActivity(moveWithDataIntent)
+        }
 
         getOrders()
 
         // onScrollVertically false agar item pada recyclerview tidak mendukung scroll
 //        layoutManager = object : LinearLayoutManager(this) { override fun canScrollVertically() = false }
-//
-//        // recyclerview yang di file order activity
-//        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-//        recyclerView.layoutManager = layoutManager
-//
-//        adapter = RecyclerAdapterOrder()
-//        recyclerView.adapter = adapter
 
     }
 
-    fun getOrders() {
-        RetrofitClient.instance.getOrder(username = Auth().username.toString()).enqueue(object :
+    private fun getOrders() {
+        val username = intent.getStringExtra(CartActivity.USERNAME)
+        RetrofitClient.instance.getOrder("$username").enqueue(object :
             Callback<ArrayList<GetAllOrders>> {
             override fun onResponse(
                 call: Call<ArrayList<GetAllOrders>>,
@@ -49,12 +55,12 @@ class OrderActivity : AppCompatActivity() {
                 response.body()?.let {allOrders.addAll(it)}
 //                Toast.makeText(applicationContext, "${response.body()}", Toast.LENGTH_LONG).show()
 
-                layoutManager = object : LinearLayoutManager(this@OrderActivity) { override fun canScrollVertically() = false }
+                layoutManager = LinearLayoutManager(this@OrderActivity)
 
                 val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
                 recyclerView.layoutManager = layoutManager
 
-                adapter = RecyclerAdapterOrder(allOrders)
+                adapter = RecyclerAdapterOrderActivity(allOrders, username.toString())
                 recyclerView.adapter = adapter
             }
 

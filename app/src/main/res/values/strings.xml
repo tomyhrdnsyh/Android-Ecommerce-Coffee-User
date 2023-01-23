@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kedai Merak</string>
+    <string name="app_name">Mehak Coffee</string>
     <string name="no_hp">Nomor Hp</string>
     <string name="password">Password</string>
     <string name="login">Masuk</string>
@@ -18,7 +18,7 @@
     <string name="order_details">Order Details</string>
     <string name="delete_checkout">Delete Checkout</string>
     <string name="order_subtotal">Order Subtotal</string>
-    <string name="price">Rp 69.000</string>
+    <string name="price">Rp 0</string>
     <string name="payment_method">COD</string>
     <string name="checkout">Checkout</string>
     <string name="message">Pesananmu akan disiapkan dan segera diantar</string>
@@ -35,4 +35,8 @@
     <string name="my_orders">Pesanan Saya</string>
     <string name="sedang_berjalan">Sedang Berjalan</string>
     <string name="riwayat_pesanan">Riwayat Pesanan</string>
+    <string name="fullname">Nama lengkap</string>
+    <string name="minuman">Minuman</string>
+    <string name="cemilan">Cemilan</string>
+    <string name="all_item">All</string>
 </resources>

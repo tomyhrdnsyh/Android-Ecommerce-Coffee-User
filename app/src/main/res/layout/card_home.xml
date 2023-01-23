@@ -17,7 +17,6 @@
 
         <ImageView
             android:id="@+id/item_image"
-            android:src="@drawable/coffee"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:layout_constraintTop_toTopOf="parent"

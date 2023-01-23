@@ -34,27 +34,23 @@
             />
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/details_header"
-        android:orientation="vertical">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/details_header"
+        android:layout_margin="10dp">
+
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:stretchColumns="1">
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginLeft="50dp"
-                android:stretchColumns="1">
-
-                <TableRow>
+            <TableRow>
 <!--                    <TextView-->
 <!--                        android:id="@+id/sedang_berjalan"-->
 <!--                        android:layout_width="wrap_content"-->
@@ -63,41 +59,30 @@
 <!--                        android:textSize="16sp"-->
 <!--                        android:text="@string/sedang_berjalan"/>-->
 
-                    <TextView
-                        android:gravity="center"
-                        android:id="@+id/riwayat_pesanan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:layout_column="1"
-                        android:text="@string/riwayat_pesanan"/>
-                </TableRow>
-            </TableLayout>
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/riwayat_pesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_column="1"
+                    android:text="@string/riwayat_pesanan"/>
+            </TableRow>
+        </TableLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="@color/colorTextInputBackground"
-                android:layout_marginTop="18dp"
-                />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/colorTextInputBackground"
+            android:layout_marginTop="18dp"
+            />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/prosescoklat"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            />
+    </LinearLayout>
 </RelativeLayout>

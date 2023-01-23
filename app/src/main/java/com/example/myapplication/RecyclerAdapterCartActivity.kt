@@ -5,15 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapterCheckout: RecyclerView.Adapter<RecyclerAdapterCheckout.ViewHolder>() {
+class RecyclerAdapterCartActivity(var item: ArrayList<GetAllCart>): RecyclerView.Adapter<RecyclerAdapterCartActivity.ViewHolder>() {
 
-    private var title = arrayOf("Coffe Mmk", "Coffe Merah", "Coffe Merah", "Coffe Merah", "Coffe Merah")
-    private var type = arrayOf("Hot", "Ice", "Ice", "Ice", "Ice")
-    private var qty = arrayOf("2", "1", "1", "3", "5")
-    private var price = arrayOf("21,000,000", "24,000,000", "24,000,000", "24,000,000", "24,000,000")
+    fun setFilteredList(item: ArrayList<GetAllCart>) {
+        this.item = item
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.checkout_detail_card, parent, false)
@@ -21,18 +20,25 @@ class RecyclerAdapterCheckout: RecyclerView.Adapter<RecyclerAdapterCheckout.View
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemTitle.text = title[position]
-        holder.itemType.text = type[position]
+        if (item[position].product__product_category__name == "Minuman") {
+            holder.itemImage.setImageResource(R.drawable.coffee)
+        }
+        else {
+            holder.itemImage.setImageResource(R.drawable.ic_snack)
+        }
 
-        holder.itemPrice.setText("Rp. ")
-        holder.itemPrice.append(price[position])
+        holder.itemTitle.text = item[position].product__name
+        holder.itemType.text = item[position].product__product_type__name
 
-        holder.itemQty.setText("Qty : ")
-        holder.itemQty.append(qty[position])
+        holder.itemPrice.text = "Rp. "
+        holder.itemPrice.append(item[position].product__price)
+
+        holder.itemQty.text = "Qty : "
+        holder.itemQty.append(item[position].qty)
     }
 
     override fun getItemCount(): Int {
-        return title.size
+        return item.size
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -53,8 +59,9 @@ class RecyclerAdapterCheckout: RecyclerView.Adapter<RecyclerAdapterCheckout.View
 
             deleteCo.setOnClickListener{
                 val position: Int = adapterPosition
-                Toast.makeText(itemView.context, "${title[position]} deleted", Toast.LENGTH_SHORT).show()
+                CartActivity().deleteCart(item = item, itemView = itemView, position =  position)
             }
         }
+
     }
 }
