@@ -39,4 +39,5 @@
     <string name="minuman">Minuman</string>
     <string name="cemilan">Cemilan</string>
     <string name="all_item">All</string>
+    <string name="payment">Payment</string>
 </resources>

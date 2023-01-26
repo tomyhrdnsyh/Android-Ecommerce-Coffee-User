@@ -44,7 +44,7 @@ interface Api {
         @Field("product_id") product_id: String,
         @Field("username") username: String,
         @Field("quantity") quantity: String
-    ): Call<PostOrders>
+    ): Call<MessageResponse>
 
     @FormUrlEncoded
     @POST("api/add_order_from_cart/")

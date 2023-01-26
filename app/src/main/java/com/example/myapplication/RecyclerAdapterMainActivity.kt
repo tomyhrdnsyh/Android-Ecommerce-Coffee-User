@@ -168,31 +168,40 @@ class RecyclerAdapterMainActivity(var item: ArrayList<GetAllProduct>,
     private fun addOrders(product_id: String, username: String, quantity: String, view: View) {
         RetrofitClient.instance.addOrder(
             product_id, username, quantity
-        ).enqueue(object : Callback<PostOrders> {
-            override fun onResponse(call: Call<PostOrders>, response: Response<PostOrders>) {
+        ).enqueue(object : Callback<MessageResponse> {
+            override fun onResponse(
+                call: Call<MessageResponse>,
+                response: Response<MessageResponse>
+            ) {
 
-                val checkoutDone = LayoutInflater.from(view.context).inflate(R.layout.dialog_checkout, null)
-                val myDialog = Dialog(view.context)
-                myDialog.setContentView(checkoutDone)
+                val url = response.body()?.message
 
-                myDialog.setCancelable(true)
+                val moveWithDataIntent = Intent(view.context, PaymentActivity::class.java)
+                moveWithDataIntent.putExtra(PaymentActivity.URL, url)
+                view.context.startActivity(moveWithDataIntent)
 
-                myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                myDialog.show()
-
-                val btn_detail = checkoutDone.findViewById<Button>(R.id.btn_detail)
-                btn_detail.setOnClickListener{
-                    val moveWithDataIntent = Intent(view.context, OrderActivity::class.java)
-                    moveWithDataIntent.putExtra(OrderActivity.USERNAME, username)
-                    view.context.startActivity(moveWithDataIntent)
-                }
+//                val checkoutDone = LayoutInflater.from(view.context).inflate(R.layout.dialog_checkout, null)
+//                val myDialog = Dialog(view.context)
+//                myDialog.setContentView(checkoutDone)
+//
+//                myDialog.setCancelable(true)
+//
+//                myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//                myDialog.show()
+//
+//                val btn_detail = checkoutDone.findViewById<Button>(R.id.btn_detail)
+//                btn_detail.setOnClickListener{
+//                    val moveWithDataIntent = Intent(view.context, OrderActivity::class.java)
+//                    moveWithDataIntent.putExtra(OrderActivity.USERNAME, username)
+//                    view.context.startActivity(moveWithDataIntent)
+//                }
 
 
                 // when user click btn_detail
 
             }
 
-            override fun onFailure(call: Call<PostOrders>, t: Throwable) {
+            override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
                 // t.message menampilkan pesan error dari system
                 Toast.makeText(view.context, "Gagal koneksi ke server", Toast.LENGTH_LONG).show()
             }
