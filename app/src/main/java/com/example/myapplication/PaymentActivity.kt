@@ -32,7 +32,7 @@ class PaymentActivity : AppCompatActivity() {
 
         webView.loadUrl("$url#/payment-list")
 
-        Toast.makeText(this, url, Toast.LENGTH_LONG).show()
+//        Toast.makeText(this, url, Toast.LENGTH_LONG).show()
         // web settings
         val webSettings = webView.settings
         // enable javascript
