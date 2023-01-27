@@ -76,7 +76,12 @@ class CartActivity : AppCompatActivity() {
         RetrofitClient.instance.addOrderFromCart("$username").enqueue(object :
             Callback<MessageResponse> {
             override fun onResponse(call: Call<MessageResponse>, response: Response<MessageResponse>) {
-                Toast.makeText(this@CartActivity, "${response.body()?.message}", Toast.LENGTH_SHORT).show()
+
+                val url = response.body()?.message
+
+                val moveWithDataIntent = Intent(this@CartActivity, PaymentActivity::class.java)
+                moveWithDataIntent.putExtra(PaymentActivity.URL, url)
+                startActivity(moveWithDataIntent)
             }
 
             override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
@@ -105,22 +110,22 @@ class CartActivity : AppCompatActivity() {
                     btn_checkout.setOnClickListener{
                         checkoutFromCart()
 
-                        val dialogBinding = layoutInflater.inflate(R.layout.dialog_checkout, null)
-                        val myDialog = Dialog(this@CartActivity)
-                        myDialog.setContentView(dialogBinding)
+//                        val dialogBinding = layoutInflater.inflate(R.layout.dialog_checkout, null)
+//                        val myDialog = Dialog(this@CartActivity)
+//                        myDialog.setContentView(dialogBinding)
 
-                        myDialog.setCancelable(true)
-                        myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                        myDialog.show()
-                        val username = intent.getStringExtra(USERNAME)
-                        val btn_detail = dialogBinding.findViewById<Button>(R.id.btn_detail)
-
-                        btn_detail.setOnClickListener{
-                            val moveWithDataIntent = Intent(this@CartActivity, OrderActivity::class.java)
-                            moveWithDataIntent.putExtra(OrderActivity.USERNAME, username)
-                            startActivity(moveWithDataIntent)
-
-                        }
+//                        myDialog.setCancelable(true)
+//                        myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//                        myDialog.show()
+//                        val username = intent.getStringExtra(USERNAME)
+//                        val btn_detail = dialogBinding.findViewById<Button>(R.id.btn_detail)
+//
+//                        btn_detail.setOnClickListener{
+//                            val moveWithDataIntent = Intent(this@CartActivity, OrderActivity::class.java)
+//                            moveWithDataIntent.putExtra(OrderActivity.USERNAME, username)
+//                            startActivity(moveWithDataIntent)
+//
+//                        }
                     }
                 }
 

@@ -175,7 +175,6 @@ class RecyclerAdapterMainActivity(var item: ArrayList<GetAllProduct>,
             ) {
 
                 val url = response.body()?.message
-
                 val moveWithDataIntent = Intent(view.context, PaymentActivity::class.java)
                 moveWithDataIntent.putExtra(PaymentActivity.URL, url)
                 view.context.startActivity(moveWithDataIntent)
