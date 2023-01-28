@@ -120,6 +120,11 @@ class OrderDetailActivity : AppCompatActivity() {
                 totalPrice.append(price.toString())
 
                 if (allOrders.size > 0 ) {
+                    val paymentMethod = findViewById<TextView>(R.id.payment_method)
+                    if (response.body()?.get(0)!!.payment_type != null) {
+                        paymentMethod.text = response.body()?.get(0)!!.payment_type
+                    }
+
                     val delivery = findViewById<TextView>(R.id.ongkir)
                     delivery.text = "Rp. 10000"
 

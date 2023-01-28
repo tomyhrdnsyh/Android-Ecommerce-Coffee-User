@@ -6,4 +6,5 @@ data class GetOrderDetails(
     val product__name: String?,
     val product__product_type__name: String?,
     val product__price: String?,
+    val payment_type: String?,
 )
