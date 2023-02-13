@@ -15,18 +15,21 @@ class RecyclerAdapterOrderActivity(private val item: ArrayList<GetAllOrders>, va
     private var title = item.map { it.product__name }
     private var price = item.map { it.order__gross_amount }
     private var status = item.map { it.order__status }
+    private var datetime = item.map { it.datetime }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var itemQty: TextView
         var itemTitle: TextView
         var itemPrice: TextView
         var itemStatus: ImageView
+        var itemDatetime: TextView
 
         init {
             itemQty = itemView.findViewById(R.id.item_qty)
             itemTitle = itemView.findViewById(R.id.item_title)
             itemPrice = itemView.findViewById(R.id.item_price)
             itemStatus = itemView.findViewById(R.id.item_status)
+            itemDatetime = itemView.findViewById(R.id.item_datetime)
 
             itemView.setOnClickListener {
                 val position: Int = adapterPosition
@@ -62,6 +65,7 @@ class RecyclerAdapterOrderActivity(private val item: ArrayList<GetAllOrders>, va
         holder.itemQty.append("x")
 
         holder.itemPrice.text = price[position]
+        holder.itemDatetime.text = datetime[position]
     }
 
     override fun getItemCount(): Int {
